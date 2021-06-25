@@ -1,6 +1,4 @@
-import base64
 from github import Github
-from pprint import pprint
 import requests
 
 # 1. Выводит все мои публичные репозитории
@@ -21,9 +19,11 @@ with open('data.txt', 'w') as f:
 def weather(api_key):
     print("Введите название города")
     city = input()
-    req = requests.get(f"api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}")
+    x = f"api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+    print(x)
+    req = requests.get(f" http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}")
 
     return req.text
 
 
-weather(" ")
+print(weather('106b6f58c1bd0cfd53e4504c80ff9c05'))
