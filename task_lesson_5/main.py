@@ -24,6 +24,7 @@ url = 'https://light.mail.ru/'
 
 chrome_options = Options()
 chrome_options.add_argument('start-maximized')
+# chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(options=chrome_options)
 
 driver.get(url)
@@ -69,6 +70,7 @@ def parce_letter(link):
 
     letter['_id'] = link.split('/')[-2]
     letter['url'] = link
+    # Это велосипед, но по другому не получается :(
     try:
         letter['from'] = WebDriverWait(driver, 2).until(
         EC.presence_of_element_located((By.XPATH, "//span[@class='mr_read__fromf']"))).text
